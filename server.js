@@ -30,7 +30,6 @@ io.on('connection', socket => {
   socket.emit('message', 'welcome to group') // welcome to current user
 
   //Broadcast when a user connects
-  socket.broadcast.emit('message', 'A user has joined chat');
 
   io.emit() // this is for all client
   
