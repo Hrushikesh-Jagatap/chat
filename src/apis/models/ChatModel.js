@@ -13,10 +13,10 @@ const chatSchema = new mongoose.Schema({
     default: true, // Default to true if not provided
   },
 
-  users: [
-    String
-  ],
-
+  // users: [
+  //   String
+  // ],
+  users: [{ type: String }],
   latestMessage: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Message', // Replace 'Message' with the actual message model name

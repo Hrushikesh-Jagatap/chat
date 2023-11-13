@@ -11,7 +11,8 @@ const createChat = async (chatData) => {
   try {
     // Create a new chat group using the provided data.
     const newChat = await ChatData.create(chatData);
-    
+      // Broadcast the message to users in the chat room using Socket.IO
+
     // Return the newly created chat group.
     return newChat;
   } catch (error) {
