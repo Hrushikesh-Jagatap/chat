@@ -5,7 +5,6 @@ const socketio = require('socket.io');
 const cors = require('cors');
 const mongoose = require('mongoose');
 
-// mongoose.set('strictQuery', false);
 
 const Message = require('./src/apis/models/MessageModel');
 const Chat = require('./src/apis/models/ChatModel');
@@ -16,6 +15,7 @@ app.use(express.json());
 
 const server = http.createServer(app);
 const io = socketio(server);
+mongoose.set('strictQuery', false);
 
 mongoose.connect('mongodb+srv://Intellie_dev_db:inteli123@cluster0.aycly9f.mongodb.net/chat?retryWrites=true&w=majority', {
   useNewUrlParser: true,
@@ -91,7 +91,17 @@ io.on('connection', (socket) => {
   });
 });
 
-const PORT = 8004;
+app.get('/healthcheck', (req, res) => {
+  log.info({info:'inside healthCheck '})
+  const data = {
+    ts: new Date(),
+    buildNumber : '10',
+    serviceName :'chat',
+  };
+  return data;
+});
+
+const PORT = 8010;
 const serverInstance = server.listen(PORT, () => {
   console.log(`Server is connected to Port ${PORT}`);
 });
