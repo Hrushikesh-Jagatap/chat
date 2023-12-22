@@ -6,6 +6,8 @@ const group = require('./group');
 
 const oneToOne = require('./oneToOne');
 
+const studentChat = require('./studentChat')
+
 const createChat = require('./createChat');
 
 const getChats = require('./getChats');
@@ -23,6 +25,8 @@ const getMsgById = require('./getMsgById');
 const updateMsgById = require('./updateMsgById');
 
 // const deleteChat = require('./deleteChat');
+
+router.use('/user', studentChat);
 
 router.use('/', updateMsgById);
 

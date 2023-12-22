@@ -1,17 +1,16 @@
 const ChatData = require('@root/src/apis/models/ChatModel');
-
-/**
- * Service function to create a new chat group.
- * @param {Object} chatData - Data to create the chat group.
- * @returns {Promise<Object>} - The newly created chat group.
- * @throws {Error} If chat group creation fails.
- */
+const http = require('http');
+const express = require('express');
+const socketIO = require('socket.io');
+const app = express();
+const server = http.createServer(app);
+const io = socketIO(server);
 
 const createChat = async (chatData) => {
   try {
     // Create a new chat group using the provided data.
     const newChat = await ChatData.create(chatData);
-      // Broadcast the message to users in the chat room using Socket.IO
+    io.emit('message', 'You have craete new chat group');
 
     // Return the newly created chat group.
     return newChat;
