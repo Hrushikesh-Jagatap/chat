@@ -91,7 +91,7 @@ io.on('connection', (socket) => {
   });
 });
 
-const PORT = 1401;
+const PORT = 8004;
 const serverInstance = server.listen(PORT, () => {
   console.log(`Server is connected to Port ${PORT}`);
 });
