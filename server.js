@@ -92,7 +92,7 @@ io.on('connection', (socket) => {
 });
 
 app.get('/healthcheck', (req, res) => {
-  log.info({info:'inside healthCheck '})
+  //log.info({info:'inside healthCheck '})
   const data = {
     ts: new Date(),
     buildNumber : '10',
