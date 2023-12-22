@@ -5,7 +5,7 @@ const socketio = require('socket.io');
 const cors = require('cors');
 const mongoose = require('mongoose');
 
-mongoose.set('strictQuery', false);
+// mongoose.set('strictQuery', false);
 
 const Message = require('./src/apis/models/MessageModel');
 const Chat = require('./src/apis/models/ChatModel');
